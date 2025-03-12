@@ -1,20 +1,26 @@
+#pragma once
+
 #include "Annotations.h"
 
-class SDK_ABI ExportedSimpleClass {
+class ExportedSimpleClass {
 public:
-  ExportedSimpleClass();
-  virtual ~ExportedSimpleClass();
+  SDK_ABI ExportedSimpleClass();
+  SDK_ABI virtual ~ExportedSimpleClass();
 
-  int get() const {
+  virtual int get() const {
     return value_;
   }
 
-  SDK_ABI friend int exportedSimpleClassGetAndSet(ExportedSimpleClass &obj, int value);
+  SDK_ABI virtual void set(int);
+  SDK_ABI virtual const char* identify() const;
 
-  virtual void set(int);
-  virtual const char* identify() const;
+  SDK_ABI static char ID[];
 
-  static char ID[];
+  // For Windows DLLs, friend function declarations must have the same dllexport
+  // or dllimport as the actual function declaration or a compiler warning is
+  // generated.
+  SDK_ABI friend int
+  exportedSimpleClassGetAndSet(ExportedSimpleClass &obj, int value);
 
 private:
   void setInternal(int);
