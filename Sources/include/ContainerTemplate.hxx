@@ -17,5 +17,5 @@ private:
   const T v_;
 };
 
-extern template class SDK_ABI ContainerTemplate<std::size_t>;
-extern template class SDK_ABI ContainerTemplate<std::string>;
+extern template class SDK_IMPORT ContainerTemplate<std::size_t>;
+extern template class SDK_IMPORT ContainerTemplate<std::string>;

@@ -3,7 +3,7 @@
 #include "Annotations.h"
 #include "ExportedSimpleClass.hxx"
 
-class SDK_TYPE_ABI ExportedDerivedClass : public ExportedSimpleClass {
+class SDK_TYPE ExportedDerivedClass : public ExportedSimpleClass {
 public:
   ExportedDerivedClass() : ExportedSimpleClass() {}
   ~ExportedDerivedClass() {}
