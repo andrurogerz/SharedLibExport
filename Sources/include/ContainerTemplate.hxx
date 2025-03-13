@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Annotations.h"
 
 #include <cstddef>
