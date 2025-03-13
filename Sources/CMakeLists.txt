@@ -2,6 +2,7 @@ add_library(SharedLibExport SHARED
   ContainerTemplate.cxx
   ExportedDerivedClass.cxx
   ExportedSimpleClass.cxx
+  ExternVariables.cxx
 )
 
 set_target_properties(SharedLibExport PROPERTIES

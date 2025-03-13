@@ -1,6 +1,7 @@
 #include <ContainerTemplate.hxx>
 #include <ExportedDerivedClass.hxx>
 #include <ExportedSimpleClass.hxx>
+#include <ExternVariables.hxx>
 
 #include <assert.h>
 #include <string.h>
@@ -29,6 +30,15 @@ int main(int argc, const char* argv[]) {
   {
     ContainerTemplate<std::size_t> obj(147);
     obj.doSomething();
+  }
+
+  {
+    const char *str = ExternVariables::const_string;
+  }
+
+  {
+    std::size_t size = ExternVariables::mutable_size;
+    ExternVariables::mutable_size = size + 10;
   }
 
   std::cout << "test passed\n";
