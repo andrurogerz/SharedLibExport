@@ -4,6 +4,7 @@ add_library(SharedLibExport SHARED
   ExportedSimpleClass.cxx
   ExternVariables.cxx
   FriendClass.cxx
+  SpecializedTemplateFunction.cxx
   TemplateWithSpecializedMethod.cxx
 )
 
