@@ -16,17 +16,9 @@ public:
 
   SDK_ABI static char ID[];
 
-  // For Windows DLLs, friend function declarations must have the same dllexport
-  // or dllimport as the actual function declaration or a compiler warning is
-  // generated.
-  SDK_ABI friend int
-  exportedSimpleClassGetAndSet(ExportedSimpleClass &obj, int value);
-
 private:
   void setInternal(int);
 
 private:
   int value_;
 };
-
-SDK_ABI int exportedSimpleClassGetAndSet(ExportedSimpleClass &obj, int value);

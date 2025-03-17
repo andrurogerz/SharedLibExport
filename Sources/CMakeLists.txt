@@ -3,6 +3,7 @@ add_library(SharedLibExport SHARED
   ExportedDerivedClass.cxx
   ExportedSimpleClass.cxx
   ExternVariables.cxx
+  FriendClass.cxx
 )
 
 set_target_properties(SharedLibExport PROPERTIES

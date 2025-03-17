@@ -21,9 +21,3 @@ char ExportedSimpleClass::ID[] = "ExportedSimpleClass";
 const char* ExportedSimpleClass::identify() const {
   return ID;
 }
-
-int exportedSimpleClassGetAndSet(ExportedSimpleClass &obj, int value) {
-  const auto result = obj.get();
-  obj.setInternal(value);
-  return result;
-}

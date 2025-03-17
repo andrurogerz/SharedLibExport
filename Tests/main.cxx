@@ -2,6 +2,7 @@
 #include <ExportedDerivedClass.hxx>
 #include <ExportedSimpleClass.hxx>
 #include <ExternVariables.hxx>
+#include <FriendClass.hxx>
 
 #include <assert.h>
 #include <string.h>
@@ -10,15 +11,13 @@
 int main(int argc, const char* argv[]) {
   {
     ExportedSimpleClass obj;
-    const int x = exportedSimpleClassGetAndSet(obj, 10);
-    obj.set(obj.get() + x);
+    obj.set(obj.get() + 10);
     assert(::strcmp(ExportedSimpleClass::ID, obj.identify()) == 0);
   }
 
   {
     ExportedDerivedClass obj;
-    const int x = exportedSimpleClassGetAndSet(obj, 10);
-    obj.set(obj.get() + x);
+    obj.set(obj.get() + 10);
     assert(::strcmp(ExportedDerivedClass::ID, obj.identify()) == 0);
   }
 
@@ -30,6 +29,13 @@ int main(int argc, const char* argv[]) {
   {
     ContainerTemplate<std::size_t> obj(147);
     obj.doSomething();
+  }
+
+  {
+    FriendlyClass friendlyClass;
+    FriendClass friendClass;
+    auto result = friendClass.doSomethingFriendly(friendlyClass);
+    assert(result == 18);
   }
 
   {
