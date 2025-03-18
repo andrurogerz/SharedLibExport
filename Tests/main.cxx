@@ -41,9 +41,25 @@ int main(int argc, const char* argv[]) {
   }
 
   {
+    // T=long specialization will resolve to the method in the class definition
+    // that returns (a + b)
+    TemplateSpecialization::TemplateStruct<long> obj;
+    auto result = obj.method(1, 2);
+    assert(result == 1 + 2);
+  }
+
+  {
+    // T=unsigned will resolve to a specialized method that returns (a + b + 1)
     TemplateSpecialization::TemplateStruct<unsigned> obj;
     auto result = obj.method(1, 2);
-    assert(result == 4);
+    assert(result == 1 + 2 + 1);
+  }
+
+  {
+    // T=int will resolve to a specialized method that returns (a + b + 2)
+    TemplateSpecialization::TemplateStruct<int> obj;
+    auto result = obj.method(1, 2);
+    assert(result == 1 + 2 + 2);
   }
 
   {

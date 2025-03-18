@@ -3,8 +3,13 @@
 namespace TemplateSpecialization {
 
 template<>
-int TemplateStruct<unsigned>::method(int a, int b) {
+unsigned TemplateStruct<unsigned>::method(unsigned a, unsigned b) {
   return a + b + 1;
+}
+
+template<>
+int TemplateStruct<int>::method(int a, int b) {
+  return a + b + 2;
 }
 
 }; // namespace TemplateSpecialization

@@ -4,14 +4,17 @@
 
 namespace TemplateSpecialization {
 
-template <typename t>
+template <typename T>
 struct TemplateStruct {
-  int method(int a, int b) {
+  T method(T a, T b) {
     return a + b;
   }
 };
 
 template <> SDK_ABI
-int TemplateStruct<unsigned>::method(int a, int b);
+unsigned TemplateStruct<unsigned>::method(unsigned a, unsigned b);
+
+template <> SDK_ABI
+int TemplateStruct<int>::method(int a, int b);
 
 }; // namespace TemplateSpecialization
