@@ -52,7 +52,7 @@
     // the visibility attribute. This attribute will export all members of the
     // type, not just type info and vtable.
     //#warning("__type_visibility__ not supported; all members will be exported!")
-    #define SDK_TYPE SDK_ABI 
+    #define SDK_TYPE SDK_ABI
   #endif
 #else
   #error "Required visibility attribute are not supported by compiler!"

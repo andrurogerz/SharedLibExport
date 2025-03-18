@@ -3,6 +3,7 @@
 #include <ExportedSimpleClass.hxx>
 #include <ExternVariables.hxx>
 #include <FriendClass.hxx>
+#include <InstantiatedTemplateClass.hxx>
 #include <SpecializedTemplateFunction.hxx>
 #include <TemplateWithSpecializedMethod.hxx>
 
@@ -65,6 +66,12 @@ int main(int argc, const char* argv[]) {
   {
     auto result = TemplateSpecialization::method<unsigned>(3, 5);
     assert(result == 9);
+  }
+
+  {
+    TemplateClass<unsigned> obj;
+    auto result = obj.method(6, 8);
+    assert(result == 6 + 8);
   }
 
   {
