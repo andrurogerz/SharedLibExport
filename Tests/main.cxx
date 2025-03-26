@@ -5,6 +5,7 @@
 #include <FriendClass.hxx>
 #include <InstantiatedTemplateClass.hxx>
 #include <SpecializedTemplateFunction.hxx>
+#include <TemplateWithExternMethod.hxx>
 #include <TemplateWithSpecializedMethod.hxx>
 
 #include <assert.h>
@@ -81,6 +82,12 @@ int main(int argc, const char* argv[]) {
   {
     std::size_t size = ExternVariables::mutable_size;
     ExternVariables::mutable_size = size + 10;
+  }
+
+  {
+    doSomething('c');
+    doSomething((long)-1);
+    doSomething((unsigned)6);
   }
 
   std::cout << "test passed\n";

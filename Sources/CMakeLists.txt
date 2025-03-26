@@ -7,6 +7,7 @@ add_library(SharedLibExport SHARED
   InstantiatedTemplateClass.cxx
   SpecializedTemplateFunction.cxx
   TemplateWithSpecializedMethod.cxx
+  TemplateWithExternMethod.cxx
 )
 
 set_target_properties(SharedLibExport PROPERTIES
