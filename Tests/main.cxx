@@ -147,13 +147,19 @@ int main(int argc, const char* argv[]) {
   }
 
   {
-    ExplicitTemplateInstantiation::TemplateStruct<int> obj;
-    assert(9 == obj.method());
+    using IntType = ExplicitTemplateInstantiation::TemplateStruct<int>;
+    IntType obj;
+    assert(IntType::key == 9);
+    assert(IntType::key == obj.method());
+    assert(IntType::key == obj.staticMethod());
   }
 
   {
-    ExplicitTemplateInstantiation::TemplateStruct<float> obj;
-    assert(7 == obj.method());
+    using FloatType = ExplicitTemplateInstantiation::TemplateStruct<float>;
+    FloatType obj;
+    assert(FloatType::key == 7);
+    assert(FloatType::key == obj.method());
+    assert(FloatType::key == obj.staticMethod());
   }
 
   std::cout << "test passed\n";
