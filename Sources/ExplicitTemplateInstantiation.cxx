@@ -12,6 +12,6 @@ namespace ExplicitTemplateInstantiation {
     return 9;
   }
 
-  template struct TemplateStruct<int>;
-  template struct TemplateStruct<float>;
+  template struct SDK_EXPORT TemplateStruct<int>;
+  template struct SDK_EXPORT TemplateStruct<float>;
 }
