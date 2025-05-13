@@ -1,5 +1,6 @@
 add_library(SharedLibExport SHARED
   ContainerTemplate.cxx
+  ExplicitTemplateInstantiation.cxx
   ExportedDerivedClass.cxx
   ExportedSimpleClass.cxx
   ExternVariables.cxx
@@ -8,6 +9,7 @@ add_library(SharedLibExport SHARED
   SpecializedTemplateFunction.cxx
   TemplateWithSpecializedMethod.cxx
   TemplateWithExternMethod.cxx
+  VirtualMethods.cxx
 )
 
 set_target_properties(SharedLibExport PROPERTIES

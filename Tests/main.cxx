@@ -1,4 +1,5 @@
 #include <ContainerTemplate.hxx>
+#include <ExplicitTemplateInstantiation.hxx>
 #include <ExportedDerivedClass.hxx>
 #include <ExportedSimpleClass.hxx>
 #include <ExternVariables.hxx>
@@ -7,6 +8,7 @@
 #include <SpecializedTemplateFunction.hxx>
 #include <TemplateWithExternMethod.hxx>
 #include <TemplateWithSpecializedMethod.hxx>
+#include <VirtualMethods.hxx>
 
 #include <assert.h>
 #include <string.h>
@@ -88,6 +90,70 @@ int main(int argc, const char* argv[]) {
     doSomething('c');
     doSomething((long)-1);
     doSomething((unsigned)6);
+  }
+
+  {
+    VirtualMethods::InlineVirtualMethods obj;
+    obj.virtualMethod(1);
+  }
+
+  {
+    VirtualMethods::ExternOverrideInlineVirtualMethod obj;
+    obj.virtualMethod(2);
+
+    VirtualMethods::InlineVirtualMethods &ref = obj;
+    ref.virtualMethod(2);
+  }
+
+  {
+    VirtualMethods::InlineOverrideInlineVirtualMethod obj;
+    obj.virtualMethod(3);
+
+    VirtualMethods::InlineVirtualMethods &ref = obj;
+    ref.virtualMethod(3);
+  }
+
+  {
+    VirtualMethods::ExternVirtualMethods obj;
+    obj.virtualMethod(4);
+  }
+
+  {
+    VirtualMethods::InlineOverrideExternVirtualMethod obj;
+    obj.virtualMethod(5);
+
+    VirtualMethods::ExternVirtualMethods &ref = obj;
+    ref.virtualMethod(5);
+  }
+
+  {
+    VirtualMethods::InlineOverridePureVirtualMethod obj;
+    obj.virtualMethod(6);
+
+    VirtualMethods::PureVirtualMethods &ref = obj;
+    ref.virtualMethod(6);
+  }
+
+  {
+    VirtualMethods::ExternOverridePureVirtualMethod obj;
+    obj.virtualMethod(7);
+
+    VirtualMethods::PureVirtualMethods &ref = obj;
+    ref.virtualMethod(7);
+  }
+
+  {
+    VirtualMethods::ChildOfPureVirtualDestructor obj;
+  }
+
+  {
+    ExplicitTemplateInstantiation::TemplateStruct<int> obj;
+    assert(9 == obj.method());
+  }
+
+  {
+    ExplicitTemplateInstantiation::TemplateStruct<float> obj;
+    assert(7 == obj.method());
   }
 
   std::cout << "test passed\n";
