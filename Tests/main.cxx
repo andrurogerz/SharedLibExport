@@ -149,16 +149,16 @@ int main(int argc, const char* argv[]) {
   {
     using IntType = ExplicitTemplateInstantiation::TemplateStruct<int>;
     IntType obj;
-    assert(obj.method() == 2);
-    assert(obj.staticMethod() == 3);
+    assert(obj.method() == 9);
+    assert(obj.staticMethod() == 10);
     const auto &key = &obj.key;
   }
 
   {
     using FloatType = ExplicitTemplateInstantiation::TemplateStruct<float>;
     FloatType obj;
-    assert(obj.method() == 9);
-    assert(obj.staticMethod() == 10);
+    assert(obj.method() == 2);
+    assert(obj.staticMethod() == 3);
     const auto &key = &obj.key;
   }
 
