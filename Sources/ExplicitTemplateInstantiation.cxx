@@ -4,31 +4,32 @@ namespace ExplicitTemplateInstantiation {
 
   template <typename T>
   int TemplateStruct<T>::method() {
-    return key;
+    return value;
   }
 
   template <typename T>
   int TemplateStruct<T>::staticMethod() {
-    return key;
+    return value;
   }
 
-  template <typename T> int TemplateStruct<T>::key = 7;
+  template <typename T> int TemplateStruct<T>::value = 7;
 
   // specialized method
   template <>
   int TemplateStruct<int>::method() {
-    return key;
+    return value;
   }
 
   // specialized static method
   template <>
   int TemplateStruct<int>::staticMethod() {
-    return key;
+    return value;
   }
 
   // specialized static field
-  template <> SDK_EXPORT int TemplateStruct<int>::key = 9;
+  template <> SDK_EXPORT int TemplateStruct<int>::value = 9;
 
+  // explicit instantiations
   template struct SDK_EXPORT TemplateStruct<int>;
   template struct SDK_EXPORT TemplateStruct<float>;
 }
