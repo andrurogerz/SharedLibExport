@@ -4,6 +4,7 @@
 #include <ExportedSimpleClass.hxx>
 #include <ExternVariables.hxx>
 #include <FriendClass.hxx>
+#include <Functions.hxx>
 #include <InstantiatedTemplateClass.hxx>
 #include <SpecializedTemplateFunction.hxx>
 #include <TemplateWithExternMethod.hxx>
@@ -160,6 +161,11 @@ int main(int argc, const char* argv[]) {
     assert(obj.method() == 2);
     assert(obj.staticMethod() == 3);
     const auto &key = &obj.key;
+  }
+
+  {
+    constexpr auto sum = Functions::sum;
+    sum(1, 2);
   }
 
   std::cout << "test passed\n";
